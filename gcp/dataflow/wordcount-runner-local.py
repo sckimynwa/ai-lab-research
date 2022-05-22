@@ -14,7 +14,3 @@ with beam.Pipeline(options=pipeline_options) as p:
     | 'Count' >> beam.combiners.Count.PerElement() \
     | 'Map' >> beam.Map(lambda w, c: "%s: %d" % (w, c)) \
     | 'Save' >> beam.io.textio.WriteToText("../lover-output.txt")
-
-# Script
-# python3 -m apache_beam.examples.wordcount \
-# --input lover.txt  --output output.txt
